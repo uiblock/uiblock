@@ -12,8 +12,6 @@ dist
 dist-ssr
 *.local
 package-lock.json
-tsconfig.json
-tsconfig.node.json
 
 public
 LICENSE

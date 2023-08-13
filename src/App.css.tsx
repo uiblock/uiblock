@@ -1,6 +1,6 @@
+import vars from '#design/public-tokens.css'
 import { globalStyle } from '@vanilla-extract/css'
 
 globalStyle('body', {
-  background: 'black',
-  color: 'white',
+  background: vars.color.default,
 })
