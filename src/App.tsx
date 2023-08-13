@@ -1,9 +1,13 @@
 import './App.css'
+import Button from '#components/button'
+import UIBlockProvider from '#components/provider/uiblock-provider'
 
 function App() {
   return (
     <>
-      <h1>Welcome to UI Blocks</h1>
+      <UIBlockProvider>
+        <Button variant='primary'>Welcome to UI Blocks world</Button>
+      </UIBlockProvider>
     </>
   )
 }
