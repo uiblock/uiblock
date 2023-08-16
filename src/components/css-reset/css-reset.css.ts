@@ -15,11 +15,24 @@ globalStyle('*', {
 
 globalStyle('html, body', { height: '100%' })
 
+globalStyle('html', {
+  /* Load system fonts */
+  fontFamily: darkTheme.font.family.system, // TODO: pass a prop
+
+  /* Make type rendering look crisper */
+  WebkitFontSmoothing: 'antialiased',
+  MozOsxFontSmoothing: 'grayscale',
+
+  /* Deactivate auto-enlargement of small text in Safari */
+  textSizeAdjust: '100%',
+
+  /* Enable kerning and optional ligatures */
+  textRendering: 'optimizeLegibility',
+})
+
 globalStyle('body', {
   lineHeight: '1.5',
-  WebkitFontSmoothing: 'antialiased',
-  fontFamily: 'system-ui, sans-serif',
-  background: darkTheme.color.default, // TODO: remove me and control it through a prop
+  background: darkTheme.color.default, // TODO: pass prop instead
 })
 
 globalStyle('img, picture, video, canvas, svg', {
