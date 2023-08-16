@@ -112,7 +112,10 @@ const darkTheme = createGlobalTheme(':root', {
     },
   },
   font: {
-    family: 'system-ui',
+    family: {
+      system: 'system-ui, sans-serif',
+      mono: 'ui-monospace',
+    },
     size: {
       75: '0.75rem', // 12px
       87: '0.875rem', // 14px
@@ -127,10 +130,10 @@ const darkTheme = createGlobalTheme(':root', {
       thin: '300',
       regular: '400',
       medium: '500',
-      'semi-bold': '600',
+      semibold: '600',
       bold: '700',
     },
-    'line-height': {
+    lineHeight: {
       100: '1rem',
       125: '1.25rem',
       150: '1.5rem',
@@ -138,6 +141,11 @@ const darkTheme = createGlobalTheme(':root', {
       200: '2rem',
       250: '2.5rem',
       300: '3rem',
+    },
+    align: {
+      start: 'start',
+      center: 'center',
+      end: 'end',
     },
   },
   space: {
