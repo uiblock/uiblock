@@ -1,6 +1,7 @@
 import { style, createThemeContract, assignVars } from '@vanilla-extract/css'
 import vars from '#design/public-tokens.css'
 import { RecipeVariants, recipe } from '@vanilla-extract/recipes'
+import { fontTokens, getFontWeights } from '#design/font.css'
 
 /*********************************************************************************/
 // variant
@@ -11,6 +12,8 @@ const spec = {
   l4: { fontSize: vars.font.size[150], lineHeight: vars.font.lineHeight[175], fontWeight: vars.font.weight.semibold },
   l5: { fontSize: vars.font.size[125], lineHeight: vars.font.lineHeight[150], fontWeight: vars.font.weight.semibold },
   l6: { fontSize: vars.font.size[100], lineHeight: vars.font.lineHeight[150], fontWeight: vars.font.weight.semibold },
+  l7: { fontSize: vars.font.size[87], lineHeight: vars.font.lineHeight[125], fontWeight: vars.font.weight.semibold },
+  l8: { fontSize: vars.font.size[75], lineHeight: vars.font.lineHeight[100], fontWeight: vars.font.weight.semibold },
 }
 
 export type Level = keyof typeof spec
@@ -41,80 +44,16 @@ const toCssStyles = (fontVars: FontVars, i: number) => {
   )
 }
 
-const [l1, l2, l3, l4, l5, l6] = levels.map(toCssVars).map(toCssStyles)
-
-/*********************************************************************************/
-// align
-const alignSpec = {
-  start: vars.font.align.start,
-  center: vars.font.align.center,
-  end: vars.font.align.end,
-}
-type Align = keyof typeof alignSpec
-const alignValues = Object.keys(alignSpec) as Align[]
-const [start, center, end] = alignValues
-  .map(a => createThemeContract({ [`ub-font-heading-align-${a}`]: null }))
-  .map((v, i) =>
-    style(
-      {
-        vars: assignVars(v, { [`ub-font-heading-align-${alignValues[i]}`]: alignSpec[alignValues[i]] }),
-        textAlign: v[`ub-font-heading-align-${alignValues[i]}`],
-      },
-      'align',
-    ),
-  )
-
-/*********************************************************************************/
-// weight
-const weightSpec = {
-  bold: vars.font.weight.bold,
-  semibold: vars.font.weight.semibold,
-  medium: vars.font.weight.medium,
-  regular: vars.font.weight.regular,
-  thin: vars.font.weight.thin,
-}
-type Weight = keyof typeof weightSpec
-const weights = Object.keys(weightSpec) as Weight[]
-const [bold, semibold, medium, regular, thin] = weights
-  .map(a => createThemeContract({ [`ub-font-heading-weight-${a}`]: null }))
-  .map((v, i) =>
-    style(
-      {
-        vars: assignVars(v, { [`ub-font-heading-weight-${weights[i]}`]: weightSpec[weights[i]] }),
-        fontWeight: v[`ub-font-heading-weight-${weights[i]}`],
-      },
-      'weight',
-    ),
-  )
-
-/*********************************************************************************/
-// family
-const familySpec = {
-  system: vars.font.family.system,
-  mono: vars.font.family.mono,
-}
-type Family = keyof typeof familySpec
-const families = Object.keys(familySpec) as Family[]
-const [system, mono] = families
-  .map(a => createThemeContract({ [`ub-font-heading-family-${a}`]: null }))
-  .map((v, i) =>
-    style(
-      {
-        vars: assignVars(v, { [`ub-font-heading-family-${families[i]}`]: familySpec[families[i]] }),
-        fontFamily: v[`ub-font-heading-family-${families[i]}`],
-      },
-      'family',
-    ),
-  )
+const [l1, l2, l3, l4, l5, l6, l7, l8] = levels.map(toCssVars).map(toCssStyles)
 
 /*********************************************************************************/
 
+const [bold, semibold, medium, regular, thin] = getFontWeights()
 export const tokens = recipe({
   variants: {
-    variant: { l1, l2, l3, l4, l5, l6 },
-    align: { start, center, end },
+    variant: { l1, l2, l3, l4, l5, l6, l7, l8 },
+    ...fontTokens,
     weight: { bold, semibold, medium, regular, thin },
-    family: { system, mono },
   },
 })
 

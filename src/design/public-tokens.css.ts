@@ -113,8 +113,9 @@ const darkTheme = createGlobalTheme(':root', {
   },
   font: {
     family: {
-      system: 'system-ui, sans-serif',
-      mono: 'ui-monospace',
+      system:
+        'system-ui, -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+      mono: 'ui-monospace SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace',
     },
     size: {
       75: '0.75rem', // 12px

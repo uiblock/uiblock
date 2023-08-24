@@ -22,7 +22,7 @@ export const Variants: Story = {
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
-        <H1 variant='l6'>Heading 1 in different variant</H1>
+        <H1 variant='l8'>Heading 1 in different variant</H1>
         <H6 variant='l1'>Heading 6 in different variant</H6>
       </div>
 
@@ -31,13 +31,13 @@ export const Variants: Story = {
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', border: '1px solid', width: '80%' }}>
-        <H4 align='start'>Heading with start alignment</H4>
+        <H4>Heading with start alignment</H4>
         <H4 align='center'>Heading with center alignment</H4>
         <H4 align='end'>Heading with end alignment</H4>
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <H4 family='system'>Heading with system font</H4>
+        <H4>Heading with system font</H4>
         <H4 family='mono'>Heading with monospace font</H4>
       </div>
     </div>
