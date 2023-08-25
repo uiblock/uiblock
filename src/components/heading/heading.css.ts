@@ -12,8 +12,6 @@ const spec = {
   l4: { fontSize: vars.font.size[150], lineHeight: vars.font.lineHeight[175], fontWeight: vars.font.weight.semibold },
   l5: { fontSize: vars.font.size[125], lineHeight: vars.font.lineHeight[150], fontWeight: vars.font.weight.semibold },
   l6: { fontSize: vars.font.size[100], lineHeight: vars.font.lineHeight[150], fontWeight: vars.font.weight.semibold },
-  l7: { fontSize: vars.font.size[87], lineHeight: vars.font.lineHeight[125], fontWeight: vars.font.weight.semibold },
-  l8: { fontSize: vars.font.size[75], lineHeight: vars.font.lineHeight[100], fontWeight: vars.font.weight.semibold },
 }
 
 export type Level = keyof typeof spec
@@ -44,14 +42,14 @@ const toCssStyles = (fontVars: FontVars, i: number) => {
   )
 }
 
-const [l1, l2, l3, l4, l5, l6, l7, l8] = levels.map(toCssVars).map(toCssStyles)
+const [l1, l2, l3, l4, l5, l6] = levels.map(toCssVars).map(toCssStyles)
 
 /*********************************************************************************/
 
 const [bold, semibold, medium, regular, thin] = getFontWeights()
 export const tokens = recipe({
   variants: {
-    variant: { l1, l2, l3, l4, l5, l6, l7, l8 },
+    variant: { l1, l2, l3, l4, l5, l6 },
     ...fontTokens,
     weight: { bold, semibold, medium, regular, thin },
   },

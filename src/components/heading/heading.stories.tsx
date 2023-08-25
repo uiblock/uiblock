@@ -11,7 +11,7 @@ type Story = StoryObj<typeof H1>
 export const Variants: Story = {
   name: 'variants',
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'start', color: 'white' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'start' }}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
         <H1>Heading 1</H1>
         <H2>Heading 2</H2>
@@ -22,7 +22,7 @@ export const Variants: Story = {
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
-        <H1 variant='l8'>Heading 1 in different variant</H1>
+        <H1 variant='l6'>Heading 1 in different variant</H1>
         <H6 variant='l1'>Heading 6 in different variant</H6>
       </div>
 

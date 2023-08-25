@@ -46,7 +46,7 @@ const a11y = style([
   {
     vars: assignVars(a11yVars, {
       'ub-btn-color-a11y-focus': vars.color.blue[860],
-      'ub-btn-color-a11y-focus-inset': vars.color.default,
+      'ub-btn-color-a11y-focus-inset': vars.color.gray[100],
       'ub-btn-shadow-a11y-focus': `0 0 0 2px ${a11yVars['ub-btn-color-a11y-focus-inset']},0 0 0 4px ${a11yVars['ub-btn-color-a11y-focus']}`,
     }),
     ':focus-visible': {
@@ -69,7 +69,7 @@ const hoverPrimary = style(
     ':hover': {
       vars: assignVars(hoverPrimaryVars, {
         'ub-btn-color-bg-primary-hover': vars.color.gray[900],
-        'ub-btn-color-txt-primary-hover': vars.color.gray[100],
+        'ub-btn-color-txt-primary-hover': vars.color.gray[200],
       }),
       background: hoverPrimaryVars['ub-btn-color-bg-primary-hover'],
       color: hoverPrimaryVars['ub-btn-color-txt-primary-hover'],
@@ -86,7 +86,7 @@ const activePrimary = style(
     ':active': {
       vars: assignVars(activePrimaryVars, {
         'ub-btn-color-bg-primary-active': vars.color.gray[700],
-        'ub-btn-color-txt-primary-active': vars.color.gray[200],
+        'ub-btn-color-txt-primary-active': vars.color.gray[300],
       }),
       background: activePrimaryVars['ub-btn-color-bg-primary-active'],
       color: activePrimaryVars['ub-btn-color-txt-primary-active'],
@@ -103,7 +103,7 @@ const a11yPrimary = style(
     ':focus-visible': {
       vars: assignVars(a11yPrimaryVars, {
         'ub-btn-color-bg-primary-focus': vars.color.gray[900],
-        'ub-btn-color-txt-primary-focus': vars.color.gray[100],
+        'ub-btn-color-txt-primary-focus': vars.color.gray[200],
       }),
       background: a11yPrimaryVars['ub-btn-color-bg-primary-focus'],
       color: a11yPrimaryVars['ub-btn-color-txt-primary-focus'],
@@ -118,8 +118,8 @@ const primaryVars = createThemeContract({
 const primary = style([
   {
     vars: assignVars(primaryVars, {
-      'ub-btn-color-bg-primary': vars.color.accent,
-      'ub-btn-color-txt-primary': vars.color.default,
+      'ub-btn-color-bg-primary': vars.color.gray[1000],
+      'ub-btn-color-txt-primary': vars.color.gray[100],
     }),
     background: primaryVars['ub-btn-color-bg-primary'],
   },
@@ -161,8 +161,8 @@ const activeOutline = style(
   {
     ':active': {
       vars: assignVars(activeOutlineVars, {
-        'ub-btn-color-bg-outline-active': vars.color.gray[400],
-        'ub-btn-color-txt-outline-active': vars.color.gray[800],
+        'ub-btn-color-bg-outline-active': vars.color.gray[300],
+        'ub-btn-color-txt-outline-active': vars.color.gray[900],
         'ub-btn-shadow-outline-active': `0 0 0 1px ${vars.color.gray[800]}`,
       }),
       background: activeOutlineVars['ub-btn-color-bg-outline-active'],
@@ -180,7 +180,7 @@ const a11yOutline = style(
   {
     ':focus-visible': {
       vars: assignVars(a11yOutlineVars, {
-        'ub-btn-color-bg-outline-focus': vars.color.gray[200],
+        'ub-btn-color-bg-outline-focus': vars.color.gray[300],
         'ub-btn-color-txt-outline-focus': vars.color.gray[900],
       }),
       background: a11yOutlineVars['ub-btn-color-bg-outline-focus'],
@@ -240,8 +240,8 @@ const activeInline = style(
   {
     ':active': {
       vars: assignVars(activeInlineVars, {
-        'ub-btn-color-bg-inline-active': vars.color.gray[400],
-        'ub-btn-color-txt-inline-active': vars.color.gray[800],
+        'ub-btn-color-bg-inline-active': vars.color.gray[300],
+        'ub-btn-color-txt-inline-active': vars.color.gray[900],
       }),
       background: activeInlineVars['ub-btn-color-bg-inline-active'],
       color: activeInlineVars['ub-btn-color-txt-inline-active'],
@@ -257,7 +257,7 @@ const a11yInline = style(
   {
     ':focus-visible': {
       vars: assignVars(a11yInlineVars, {
-        'ub-btn-color-bg-inline-focus': vars.color.gray[200],
+        'ub-btn-color-bg-inline-focus': vars.color.gray[300],
         'ub-btn-color-txt-inline-focus': vars.color.gray[900],
       }),
       background: a11yInlineVars['ub-btn-color-bg-inline-focus'],

@@ -12,7 +12,7 @@ type Story = StoryObj<typeof Button>
 export const Variants: Story = {
   name: 'variants',
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'start', color: 'white' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'start', color: 'teal' }}>
       <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
         <div>Variant</div>
         <Button variant='primary'>Primary Button</Button>

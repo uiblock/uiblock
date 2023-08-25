@@ -15,6 +15,12 @@
 
 ## Variants
 
+- Button variant uses a predefined styles including background color, text-color, border color, border radius. Implicitly, it sets the styles for all button states such as `hover`, `active`, `focus`...etc
+  - `primary`: used for more prominent actions.
+  - `outline`: used for less prominent actions. This is the default variant
+  - `inline`: **only** used within `ActionBar` where multiple sibling actions are grouped together. It causes accessibility concern if used outside `ActionBar` because it looks like a text without any interaction (like hover). __TODO__ Might move this variant later so it is not abused by consumers
+- Size variant determines spacial characteristics such font-size, line-height,  padding.
+
 ### Primary
 --ub-btn-color-bg-primary
 --ub-btn-color-txt-primary

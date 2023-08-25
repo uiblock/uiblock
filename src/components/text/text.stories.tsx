@@ -11,7 +11,7 @@ type Story = StoryObj<typeof Text>
 export const Variants: Story = {
   name: 'variants',
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'start', color: 'white' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'start' }}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'start' }}>
         <Text>This is a div</Text>
         <Text as='span'>This is a span</Text>
