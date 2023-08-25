@@ -45,8 +45,14 @@ const toCssStyles = (fontVars: FontVars, i: number) => {
 const [l1, l2, l3, l4, l5, l6] = levels.map(toCssVars).map(toCssStyles)
 
 /*********************************************************************************/
-
+// font weight
+// In order to override the font weight defined by the variant l1,l2,..l6. Define a new css variable
+// then assign font-weight css rule to the new css variable
+// TODO: may be i can take the font weight rule out of the variant l1...l6 to simplify things
+// Or find a better way to reassign the value of the css variable ub-font-heading-weight-${level}
 const [bold, semibold, medium, regular, thin] = getFontWeights()
+
+/*********************************************************************************/
 export const tokens = recipe({
   variants: {
     variant: { l1, l2, l3, l4, l5, l6 },

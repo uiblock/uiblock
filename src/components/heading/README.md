@@ -4,15 +4,11 @@ Design token general name is --ub-font-concept-prop-variant-~~state~~-scale-mode
 -  concept is `heading` and sometimes it is removed if the prop is shared with the `text` concept
 -  prop is one of `size`, `line-height`, `weight`, `family`, `align`
 -  variant
-   -  For `size` prop: no variants
-   -  For `weight` prop: none for `heading` concept but it has these variants `bold`, `semibold`, `medium`, `regular`, `thin` for non `heading` concept to override the weight if necessary.
-   -  For `line-height` prop: no variants
+   -  For `line-height` prop: the variants are `l1`, `l2`, `l3`, `l4`, `l5`, `l6`
+   -  For `size` prop: the variants are `l1`, `l2`, `l3`, `l4`, `l5`, `l6`
+   -  For `weight` prop: the variants are `l1`, `l2`, `l3`, `l4`, `l5`, `l6`. But if you want to override the font weight uses these variants instead `bold`, `semibold`, `medium`, `regular`, `thin`. It's confusing and I need to simplify this
    -  For `family` prop: the variants are `system`, `mono`
    -  For `align` prop: the variants are `start`, `center`, `end`
--  scale
-   -  For `size` prop: the scales are `l1`, `l2`, `l3`, `l4`, `l5`, `l6`
-   -  For `weight` prop: the scales are `l1`, `l2`, `l3`, `l4`, `l5`, `l6` 
-   -  For `line-height` prop: the scales are `l1`, `l2`, `l3`, `l4`, `l5`, `l6`
 
 ```
 --ub-font-heading-size-l1
