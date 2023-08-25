@@ -1,7 +1,7 @@
 # Tokens
 
-Design token general name is --ub-font-concept-prop-variant-~~state-scale~~-mode where:
--  concept is `text` and sometimes it is removed if the prop is shared with the `heading` concept
+Design token general name is --ub-~~component~~-font-concept-prop-variant-~~state-scale~~-mode where:
+-  concept is `body` and sometimes it is removed if the prop is shared with the `heading` concept
 -  prop is one of `size`, `line-height`, `weight`, `family`, `align`
 -  variant
    -  For `size` prop: the variants are `md`, `sm`, `xs`
@@ -10,14 +10,21 @@ Design token general name is --ub-font-concept-prop-variant-~~state-scale~~-mode
    -  For `family` prop: the variants are `system`, `mono`
    -  For `align` prop: the variants are `start`, `center`, `end`
 
-```
---ub-font-text-size-md
---ub-font-text-size-sm
---ub-font-text-size-xs
+General name for color design token is --ub-~~component~~-color-~~concept~~-prop-variant-mode where
+- prop is `txt`
+- variant: `default`, `subtle`
 
---ub-font-text-line-height-md
---ub-font-text-line-height-sm
---ub-font-text-line-height-xs
+```
+--ub-color-txt-default
+--ub-color-txt-subtle
+
+--ub-font-body-size-md
+--ub-font-body-size-sm
+--ub-font-body-size-xs
+
+--ub-font-body-line-height-md
+--ub-font-body-line-height-sm
+--ub-font-body-line-height-xs
 
 --ub-font-weight-bold
 --ub-font-weight-semibold
@@ -35,7 +42,15 @@ Design token general name is --ub-font-concept-prop-variant-~~state-scale~~-mode
 
 # Component Props
 
-But by default, the color foreground token is inherited from parent elements/components. So there is no need to create a separate prop for the color.
+## color
+It controls the foreground color text
+- default value: `default`
+- possible values: `subtle`, `default`
+- mapped tokens:
+```
+--ub-color-txt-default
+--ub-color-txt-subtle
+```
 
 ## size
 It uses a predefined tokens to set the font size & line height. The mix of these values ensures that the text aligns perfectly in a 4px grid system.
@@ -43,14 +58,14 @@ It uses a predefined tokens to set the font size & line height. The mix of these
 - possible values: `md`, `sm`, `xs`
 - mapped tokens:
 ```
---ub-font-text-size-md
---ub-font-text-line-height-md
+--ub-font-body-size-md
+--ub-font-body-line-height-md
 
---ub-font-text-size-sm
---ub-font-text-line-height-sm
+--ub-font-body-size-sm
+--ub-font-body-line-height-sm
 
---ub-font-text-size-xs
---ub-font-text-line-height-xs
+--ub-font-body-size-xs
+--ub-font-body-line-height-xs
 ```
 
 ## align
