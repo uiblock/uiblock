@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { H1, H2, H3, H4, H5, H6 } from '#components/heading'
+import vars from '#design/public-tokens.css'
 
 const meta: Meta<typeof H1> = {
   component: H1,
@@ -30,7 +31,15 @@ export const Variants: Story = {
         <H1 weight='thin'>Heading in different weight</H1>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', border: '1px solid', width: '80%' }}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1rem',
+          border: `1px solid ${vars.color.yellow[990]}`,
+          width: '80%',
+        }}
+      >
         <H4>Heading with start alignment</H4>
         <H4 align='center'>Heading with center alignment</H4>
         <H4 align='end'>Heading with end alignment</H4>

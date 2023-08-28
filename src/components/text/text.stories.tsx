@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import Text from '#components/text'
+import vars from '#design/public-tokens.css'
 
 const meta: Meta<typeof Text> = {
   component: Text,
@@ -11,7 +12,15 @@ type Story = StoryObj<typeof Text>
 export const Variants: Story = {
   name: 'variants',
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'start', color: 'teal' }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '2rem',
+        alignItems: 'start',
+        color: vars.color.yellow[990],
+      }}
+    >
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'start' }}>
         <Text>Text in default color</Text>
         <Text color='subtle'>Text in subtle color</Text>

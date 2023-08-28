@@ -130,85 +130,85 @@ const primary = style([
 
 /*********************************************************************************/
 
-// Outline button
+// subtle button
 
-const hoverOutlineVars = createThemeContract({
-  'ub-btn-color-bg-outline-hover': null,
-  'ub-btn-color-txt-outline-hover': null,
-  'ub-btn-shadow-outline-hover': null,
+const hoverSubtleVars = createThemeContract({
+  'ub-btn-color-bg-subtle-hover': null,
+  'ub-btn-color-txt-subtle-hover': null,
+  'ub-btn-shadow-subtle-hover': null,
 })
-const hoverOutline = style(
+const hoverSubtle = style(
   {
     ':hover': {
-      vars: assignVars(hoverOutlineVars, {
-        'ub-btn-color-bg-outline-hover': vars.color.gray[200],
-        'ub-btn-color-txt-outline-hover': vars.color.gray[900],
-        'ub-btn-shadow-outline-hover': `0 0 0 1px ${vars.color.gray[900]}`,
+      vars: assignVars(hoverSubtleVars, {
+        'ub-btn-color-bg-subtle-hover': vars.color.gray[200],
+        'ub-btn-color-txt-subtle-hover': vars.color.gray[900],
+        'ub-btn-shadow-subtle-hover': `0 0 0 1px ${vars.color.gray[900]}`,
       }),
-      background: hoverOutlineVars['ub-btn-color-bg-outline-hover'],
-      color: hoverOutlineVars['ub-btn-color-txt-outline-hover'],
+      background: hoverSubtleVars['ub-btn-color-bg-subtle-hover'],
+      color: hoverSubtleVars['ub-btn-color-txt-subtle-hover'],
     },
-    boxShadow: hoverOutlineVars['ub-btn-shadow-outline-hover'],
+    boxShadow: hoverSubtleVars['ub-btn-shadow-subtle-hover'],
   },
-  'outline_hover',
+  'subtle_hover',
 )
-const activeOutlineVars = createThemeContract({
-  'ub-btn-color-bg-outline-active': null,
-  'ub-btn-color-txt-outline-active': null,
-  'ub-btn-shadow-outline-active': null,
+const activeSubtleVars = createThemeContract({
+  'ub-btn-color-bg-subtle-active': null,
+  'ub-btn-color-txt-subtle-active': null,
+  'ub-btn-shadow-subtle-active': null,
 })
-const activeOutline = style(
+const activeSubtle = style(
   {
     ':active': {
-      vars: assignVars(activeOutlineVars, {
-        'ub-btn-color-bg-outline-active': vars.color.gray[300],
-        'ub-btn-color-txt-outline-active': vars.color.gray[900],
-        'ub-btn-shadow-outline-active': `0 0 0 1px ${vars.color.gray[800]}`,
+      vars: assignVars(activeSubtleVars, {
+        'ub-btn-color-bg-subtle-active': vars.color.gray[300],
+        'ub-btn-color-txt-subtle-active': vars.color.gray[900],
+        'ub-btn-shadow-subtle-active': `0 0 0 1px ${vars.color.gray[800]}`,
       }),
-      background: activeOutlineVars['ub-btn-color-bg-outline-active'],
-      color: activeOutlineVars['ub-btn-color-txt-outline-active'],
+      background: activeSubtleVars['ub-btn-color-bg-subtle-active'],
+      color: activeSubtleVars['ub-btn-color-txt-subtle-active'],
     },
-    boxShadow: activeOutlineVars['ub-btn-shadow-outline-active'],
+    boxShadow: activeSubtleVars['ub-btn-shadow-subtle-active'],
   },
-  'outline_active',
+  'subtle_active',
 )
-const a11yOutlineVars = createThemeContract({
-  'ub-btn-color-bg-outline-focus': null,
-  'ub-btn-color-txt-outline-focus': null,
+const a11ySubtleVars = createThemeContract({
+  'ub-btn-color-bg-subtle-focus': null,
+  'ub-btn-color-txt-subtle-focus': null,
 })
-const a11yOutline = style(
+const a11ySubtle = style(
   {
     ':focus-visible': {
-      vars: assignVars(a11yOutlineVars, {
-        'ub-btn-color-bg-outline-focus': vars.color.gray[300],
-        'ub-btn-color-txt-outline-focus': vars.color.gray[900],
+      vars: assignVars(a11ySubtleVars, {
+        'ub-btn-color-bg-subtle-focus': vars.color.gray[300],
+        'ub-btn-color-txt-subtle-focus': vars.color.gray[900],
       }),
-      background: a11yOutlineVars['ub-btn-color-bg-outline-focus'],
-      color: a11yOutlineVars['ub-btn-color-txt-outline-focus'],
+      background: a11ySubtleVars['ub-btn-color-bg-subtle-focus'],
+      color: a11ySubtleVars['ub-btn-color-txt-subtle-focus'],
       // As opposed to :hover css rules, no need to set the box-shadow here so that it's set by common a11y
     },
   },
-  'outline_a11y',
+  'subtle_a11y',
 )
-const outlineVars = createThemeContract({
-  'ub-btn-color-bg-outline': null,
-  'ub-btn-color-txt-outline': null,
-  'ub-btn-shadow-outline': null,
+const subtleVars = createThemeContract({
+  'ub-btn-color-bg-subtle': null,
+  'ub-btn-color-txt-subtle': null,
+  'ub-btn-shadow-subtle': null,
 })
-const outline = style([
+const subtle = style([
   {
-    vars: assignVars(outlineVars, {
-      'ub-btn-color-bg-outline': 'transparent',
-      'ub-btn-color-txt-outline': vars.color.gray[600],
-      'ub-btn-shadow-outline': `0 0 0 1px ${vars.color.gray[600]}`,
+    vars: assignVars(subtleVars, {
+      'ub-btn-color-bg-subtle': 'transparent',
+      'ub-btn-color-txt-subtle': vars.color.gray[600],
+      'ub-btn-shadow-subtle': `0 0 0 1px ${vars.color.gray[600]}`,
     }),
-    background: outlineVars['ub-btn-color-bg-outline'],
-    color: outlineVars['ub-btn-color-txt-outline'],
-    boxShadow: outlineVars['ub-btn-shadow-outline'],
+    background: subtleVars['ub-btn-color-bg-subtle'],
+    color: subtleVars['ub-btn-color-txt-subtle'],
+    boxShadow: subtleVars['ub-btn-shadow-subtle'],
   },
-  a11yOutline,
-  activeOutline,
-  hoverOutline,
+  a11ySubtle,
+  activeSubtle,
+  hoverSubtle,
 ])
 
 /*********************************************************************************/
@@ -289,7 +289,7 @@ const inline = style([
 export const tokens = recipe({
   base: [common, a11y],
   variants: {
-    variant: { primary, outline, inline },
+    variant: { primary, subtle, inline },
   },
 })
 
