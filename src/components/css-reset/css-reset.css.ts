@@ -32,7 +32,7 @@ globalStyle('html', {
 
 globalStyle('body', {
   lineHeight: '1.5',
-  background: darkTheme.color.gray[100], // TODO: pass prop instead
+  background: darkTheme.color.gray.base, // TODO: pass prop instead
   color: darkTheme.color.gray[1000], // TODO: pass prop instead
 })
 

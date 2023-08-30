@@ -3,16 +3,16 @@ import { createGlobalTheme } from '@vanilla-extract/css'
 const darkTheme = createGlobalTheme(':root', {
   color: {
     gray: {
-      100: '#171717',
-      200: '#2c2c2c',
-      300: '#424242',
-      400: '#575757',
-      500: '#6d6d6d', // contrast 4.5:1 on light theme
-      600: '#979797',
-      700: '#adadad',
-      800: '#c2c2c2',
-      900: '#d8d8d8',
-      1000: '#ededed',
+      base: '#000000',
+      100: '#191919',
+      200: '#333333',
+      300: '#4d4d4d',
+      400: '#666666',
+      600: '#999999',
+      700: '#b3b3b3',
+      800: '#cccccc',
+      900: '#e6e6e6',
+      1000: '#ffffff',
     },
     red: {
       500: '#802519',
