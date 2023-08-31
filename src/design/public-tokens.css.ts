@@ -2,9 +2,8 @@ import { createGlobalTheme } from '@vanilla-extract/css'
 
 const darkTheme = createGlobalTheme(':root', {
   color: {
-    default: '#000000',
-    accent: '#ffffff',
     gray: {
+      base: '#000000',
       100: '#191919',
       200: '#333333',
       300: '#4d4d4d',
@@ -13,6 +12,7 @@ const darkTheme = createGlobalTheme(':root', {
       700: '#b3b3b3',
       800: '#cccccc',
       900: '#e6e6e6',
+      1000: '#ffffff',
     },
     red: {
       500: '#802519',
@@ -113,8 +113,9 @@ const darkTheme = createGlobalTheme(':root', {
   },
   font: {
     family: {
-      system: 'system-ui, sans-serif',
-      mono: 'ui-monospace',
+      system:
+        'system-ui, -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+      mono: 'ui-monospace SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace',
     },
     size: {
       75: '0.75rem', // 12px

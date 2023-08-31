@@ -1,6 +1,7 @@
 import { style, createThemeContract, assignVars } from '@vanilla-extract/css'
 import vars from '#design/public-tokens.css'
 import { RecipeVariants, recipe } from '@vanilla-extract/recipes'
+import { fontTokens, getFontWeights } from '#design/font.css'
 
 /*********************************************************************************/
 // variant
@@ -44,77 +45,19 @@ const toCssStyles = (fontVars: FontVars, i: number) => {
 const [l1, l2, l3, l4, l5, l6] = levels.map(toCssVars).map(toCssStyles)
 
 /*********************************************************************************/
-// align
-const alignSpec = {
-  start: vars.font.align.start,
-  center: vars.font.align.center,
-  end: vars.font.align.end,
-}
-type Align = keyof typeof alignSpec
-const alignValues = Object.keys(alignSpec) as Align[]
-const [start, center, end] = alignValues
-  .map(a => createThemeContract({ [`ub-font-heading-align-${a}`]: null }))
-  .map((v, i) =>
-    style(
-      {
-        vars: assignVars(v, { [`ub-font-heading-align-${alignValues[i]}`]: alignSpec[alignValues[i]] }),
-        textAlign: v[`ub-font-heading-align-${alignValues[i]}`],
-      },
-      'align',
-    ),
-  )
+// font weight
+// In order to override the font weight defined by the variant l1,l2,..l6. Define a new css variable
+// then assign font-weight css rule to the new css variable
+// TODO: may be i can take the font weight rule out of the variant l1...l6 to simplify things
+// Or find a better way to reassign the value of the css variable ub-font-heading-weight-${level}
+const [bold, semibold, medium, regular, thin] = getFontWeights()
 
 /*********************************************************************************/
-// weight
-const weightSpec = {
-  bold: vars.font.weight.bold,
-  semibold: vars.font.weight.semibold,
-  medium: vars.font.weight.medium,
-  regular: vars.font.weight.regular,
-  thin: vars.font.weight.thin,
-}
-type Weight = keyof typeof weightSpec
-const weights = Object.keys(weightSpec) as Weight[]
-const [bold, semibold, medium, regular, thin] = weights
-  .map(a => createThemeContract({ [`ub-font-heading-weight-${a}`]: null }))
-  .map((v, i) =>
-    style(
-      {
-        vars: assignVars(v, { [`ub-font-heading-weight-${weights[i]}`]: weightSpec[weights[i]] }),
-        fontWeight: v[`ub-font-heading-weight-${weights[i]}`],
-      },
-      'weight',
-    ),
-  )
-
-/*********************************************************************************/
-// family
-const familySpec = {
-  system: vars.font.family.system,
-  mono: vars.font.family.mono,
-}
-type Family = keyof typeof familySpec
-const families = Object.keys(familySpec) as Family[]
-const [system, mono] = families
-  .map(a => createThemeContract({ [`ub-font-heading-family-${a}`]: null }))
-  .map((v, i) =>
-    style(
-      {
-        vars: assignVars(v, { [`ub-font-heading-family-${families[i]}`]: familySpec[families[i]] }),
-        fontFamily: v[`ub-font-heading-family-${families[i]}`],
-      },
-      'family',
-    ),
-  )
-
-/*********************************************************************************/
-
 export const tokens = recipe({
   variants: {
     variant: { l1, l2, l3, l4, l5, l6 },
-    align: { start, center, end },
+    ...fontTokens,
     weight: { bold, semibold, medium, regular, thin },
-    family: { system, mono },
   },
 })
 

@@ -7,7 +7,7 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> &
     trailingIcon?: ReactNode
   }
 
-const Button = ({ children, variant = 'outline', leadingIcon, trailingIcon, ...props }: Props) => (
+const Button = ({ children, variant = 'subtle', leadingIcon, trailingIcon, ...props }: Props) => (
   <button {...props} className={`${tokens({ variant })}`}>
     {leadingIcon}
     {children}
