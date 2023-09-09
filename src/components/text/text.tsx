@@ -5,10 +5,10 @@ type Props = HTMLAttributes<HTMLDivElement | HTMLSpanElement | HTMLParagraphElem
   Variants & { as?: 'div' | 'span' | 'p' }
 export const Text = ({
   as: Tag = 'div',
-  color = 'default',
   size = 'md',
   align = 'start',
   weight = 'regular',
+  color,
   family,
   ...props
 }: Props) => <Tag {...props} className={`${tokens({ color, size, align, weight, family })}`} />

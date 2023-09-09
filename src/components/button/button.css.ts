@@ -5,24 +5,15 @@ import { RecipeVariants, recipe } from '@vanilla-extract/recipes'
 const commonVars = createThemeContract({
   'ub-btn-border': null,
   'ub-btn-border-radius': null,
-  'ub-btn-size-height': null,
-  'ub-btn-size-width': null,
-  'ub-btn-space': null,
 })
 const common = style({
   vars: assignVars(commonVars, {
     'ub-btn-border': 'none',
     'ub-btn-border-radius': vars.size[2],
-    'ub-btn-size-height': vars.size[11],
-    'ub-btn-size-width': vars.size[11],
-    'ub-btn-space': vars.space[2],
   }),
   border: commonVars['ub-btn-border'],
   borderRadius: commonVars['ub-btn-border-radius'],
-  // https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
-  minHeight: commonVars['ub-btn-size-height'],
-  minWidth: commonVars['ub-btn-size-width'],
-  padding: `0 ${commonVars['ub-btn-space']}`,
+
   transition: 'all ease-in 0.2s',
 
   // Needed for the icon + label
@@ -215,53 +206,56 @@ const subtle = style([
 
 // Inline button
 
-const hoverInlineVars = createThemeContract({
-  'ub-btn-color-bg-inline-hover': null,
-  'ub-btn-color-txt-inline-hover': null,
-})
+// const hoverInlineVars = createThemeContract({
+//   'ub-btn-color-bg-inline-hover': null,
+//   'ub-btn-color-txt-inline-hover': null,
+// })
 const hoverInline = style(
   {
     ':hover': {
-      vars: assignVars(hoverInlineVars, {
-        'ub-btn-color-bg-inline-hover': vars.color.gray[100],
-        'ub-btn-color-txt-inline-hover': vars.color.gray[700],
-      }),
-      background: hoverInlineVars['ub-btn-color-bg-inline-hover'],
-      color: hoverInlineVars['ub-btn-color-txt-inline-hover'],
+      // vars: assignVars(hoverInlineVars, {
+      //   'ub-btn-color-bg-inline-hover': vars.color.gray[100],
+      //   'ub-btn-color-txt-inline-hover': vars.color.gray[700],
+      // }),
+      backdropFilter: 'brightness(1.8)',
+      // background: hoverInlineVars['ub-btn-color-bg-inline-hover'],
+      // color: hoverInlineVars['ub-btn-color-txt-inline-hover'],
     },
   },
   'inline_hover',
 )
-const activeInlineVars = createThemeContract({
-  'ub-btn-color-bg-inline-active': null,
-  'ub-btn-color-txt-inline-active': null,
-})
+// const activeInlineVars = createThemeContract({
+//   'ub-btn-color-bg-inline-active': null,
+//   'ub-btn-color-txt-inline-active': null,
+// })
 const activeInline = style(
   {
     ':active': {
-      vars: assignVars(activeInlineVars, {
-        'ub-btn-color-bg-inline-active': vars.color.gray[200],
-        'ub-btn-color-txt-inline-active': vars.color.gray[800],
-      }),
-      background: activeInlineVars['ub-btn-color-bg-inline-active'],
-      color: activeInlineVars['ub-btn-color-txt-inline-active'],
+      // vars: assignVars(activeInlineVars, {
+      //   'ub-btn-color-bg-inline-active': vars.color.gray[200],
+      //   'ub-btn-color-txt-inline-active': vars.color.gray[800],
+      // }),
+      // background: activeInlineVars['ub-btn-color-bg-inline-active'],
+      // color: activeInlineVars['ub-btn-color-txt-inline-active'],
+      backdropFilter: 'brightness(1.5)',
     },
   },
   'inline_active',
 )
-const a11yInlineVars = createThemeContract({
-  'ub-btn-color-bg-inline-focus': null,
-  'ub-btn-color-txt-inline-focus': null,
-})
+// const a11yInlineVars = createThemeContract({
+//   'ub-btn-color-bg-inline-focus': null,
+//   'ub-btn-color-txt-inline-focus': null,
+// })
 const a11yInline = style(
   {
     ':focus-visible': {
-      vars: assignVars(a11yInlineVars, {
-        'ub-btn-color-bg-inline-focus': vars.color.gray[100],
-        'ub-btn-color-txt-inline-focus': vars.color.gray[700],
-      }),
-      background: a11yInlineVars['ub-btn-color-bg-inline-focus'],
-      color: a11yInlineVars['ub-btn-color-txt-inline-focus'],
+      // vars: assignVars(a11yInlineVars, {
+      //   'ub-btn-color-bg-inline-focus': vars.color.gray[100],
+      //   'ub-btn-color-txt-inline-focus': vars.color.gray[700],
+      // }),
+      // background: a11yInlineVars['ub-btn-color-bg-inline-focus'],
+      // color: a11yInlineVars['ub-btn-color-txt-inline-focus'],
+      backdropFilter: 'brightness(1.8)',
     },
   },
   'a11y_inline',
@@ -274,7 +268,7 @@ const inline = style([
   {
     vars: assignVars(inlineVars, {
       'ub-btn-color-bg-inline': 'transparent',
-      'ub-btn-color-txt-inline': vars.color.gray[600],
+      'ub-btn-color-txt-inline': 'inherit',
     }),
     background: inlineVars['ub-btn-color-bg-inline'],
     color: inlineVars['ub-btn-color-txt-inline'],
@@ -285,11 +279,27 @@ const inline = style([
 ])
 
 /*********************************************************************************/
+// size
+// https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
+const md = style({
+  minHeight: vars.size[11],
+  minWidth: vars.size[11],
+  padding: `0 ${vars.space[2]}`,
+})
+
+const lg = style({
+  minHeight: vars.size[15],
+  minWidth: vars.size[15],
+  padding: `0 ${vars.space[2]}`,
+})
+
+/*********************************************************************************/
 
 export const tokens = recipe({
   base: [common, a11y],
   variants: {
     variant: { primary, subtle, inline },
+    size: { lg, md },
   },
 })
 

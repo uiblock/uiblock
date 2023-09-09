@@ -1,3 +1,5 @@
 export { SpinnerIcon } from './spinner'
 export { CaretDownIcon } from './caret-down'
 export { CalendarIcon } from './calendar'
+export { ErrorIcon } from './error'
+export { XIcon, XMarkIcon } from './x'

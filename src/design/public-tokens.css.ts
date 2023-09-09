@@ -21,7 +21,7 @@ const darkTheme = createGlobalTheme(':root', {
       820: '#d1402f',
       880: '#e1574a',
       910: '#e75f54',
-      930: '#b3b3b3',
+      930: '#ed6962',
       950: '#f38986',
       980: '#f9baba',
       1000: '#ffe6e6',
@@ -170,6 +170,7 @@ const darkTheme = createGlobalTheme(':root', {
     0: '0',
     2: '0.5rem',
     11: '2.75rem',
+    15: '3.75rem',
   },
 })
 

@@ -8,6 +8,7 @@ import { fontTokens } from '#design/font.css'
 const colorSpec = {
   default: vars.color.gray[1000],
   subtle: vars.color.gray[600],
+  error: vars.color.red[980],
 }
 type Color = keyof typeof colorSpec
 const colors = Object.keys(colorSpec) as Color[]
@@ -26,7 +27,7 @@ const toCssColorStyles = (colorVars: ColorVars, i: number) => {
   )
 }
 
-const [base, subtle] = colors.map(toCssColorVars).map(toCssColorStyles)
+const [base, subtle, error] = colors.map(toCssColorVars).map(toCssColorStyles)
 
 /*********************************************************************************/
 // size
@@ -67,7 +68,7 @@ const [md, sm, xs] = levels.map(toCssVars).map(toCssStyles)
 export const tokens = recipe({
   variants: {
     size: { md, sm, xs },
-    color: { default: base, subtle },
+    color: { default: base, subtle, error },
     ...fontTokens,
   },
 })

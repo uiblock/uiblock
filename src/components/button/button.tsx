@@ -1,14 +1,22 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react'
 import { Variants, tokens } from './button.css'
 
-type Props = ButtonHTMLAttributes<HTMLButtonElement> &
-  Variants & {
-    leadingIcon?: ReactNode
-    trailingIcon?: ReactNode
-  }
+export type ButtonWithVariants = ButtonHTMLAttributes<HTMLButtonElement> & Variants
+type Props = ButtonWithVariants & {
+  leadingIcon?: ReactNode
+  trailingIcon?: ReactNode
+}
 
-const Button = ({ children, variant = 'subtle', leadingIcon, trailingIcon, ...props }: Props) => (
-  <button {...props} className={`${tokens({ variant })}`}>
+const Button = ({
+  children,
+  variant = 'subtle',
+  size = 'md',
+  className = '',
+  leadingIcon,
+  trailingIcon,
+  ...props
+}: Props) => (
+  <button {...props} className={`${tokens({ variant, size })} ${className}`}>
     {leadingIcon}
     {children}
     {trailingIcon}
