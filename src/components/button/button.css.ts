@@ -206,56 +206,56 @@ const subtle = style([
 
 // Inline button
 
-// const hoverInlineVars = createThemeContract({
-//   'ub-btn-color-bg-inline-hover': null,
-//   'ub-btn-color-txt-inline-hover': null,
-// })
+const hoverInlineVars = createThemeContract({
+  'ub-btn-color-bg-inline-hover': null,
+  'ub-btn-color-txt-inline-hover': null,
+})
 const hoverInline = style(
   {
     ':hover': {
-      // vars: assignVars(hoverInlineVars, {
-      //   'ub-btn-color-bg-inline-hover': vars.color.gray[100],
-      //   'ub-btn-color-txt-inline-hover': vars.color.gray[700],
-      // }),
-      backdropFilter: 'brightness(1.8)',
-      // background: hoverInlineVars['ub-btn-color-bg-inline-hover'],
-      // color: hoverInlineVars['ub-btn-color-txt-inline-hover'],
+      vars: assignVars(hoverInlineVars, {
+        'ub-btn-color-bg-inline-hover': vars.color.gray[100],
+        'ub-btn-color-txt-inline-hover': vars.color.gray[700],
+      }),
+      // backdropFilter: 'brightness(1.8)',
+      background: hoverInlineVars['ub-btn-color-bg-inline-hover'],
+      color: hoverInlineVars['ub-btn-color-txt-inline-hover'],
     },
   },
   'inline_hover',
 )
-// const activeInlineVars = createThemeContract({
-//   'ub-btn-color-bg-inline-active': null,
-//   'ub-btn-color-txt-inline-active': null,
-// })
+const activeInlineVars = createThemeContract({
+  'ub-btn-color-bg-inline-active': null,
+  'ub-btn-color-txt-inline-active': null,
+})
 const activeInline = style(
   {
     ':active': {
-      // vars: assignVars(activeInlineVars, {
-      //   'ub-btn-color-bg-inline-active': vars.color.gray[200],
-      //   'ub-btn-color-txt-inline-active': vars.color.gray[800],
-      // }),
-      // background: activeInlineVars['ub-btn-color-bg-inline-active'],
-      // color: activeInlineVars['ub-btn-color-txt-inline-active'],
-      backdropFilter: 'brightness(1.5)',
+      vars: assignVars(activeInlineVars, {
+        'ub-btn-color-bg-inline-active': vars.color.gray[200],
+        'ub-btn-color-txt-inline-active': vars.color.gray[800],
+      }),
+      background: activeInlineVars['ub-btn-color-bg-inline-active'],
+      color: activeInlineVars['ub-btn-color-txt-inline-active'],
+      // backdropFilter: 'brightness(1.5)',
     },
   },
   'inline_active',
 )
-// const a11yInlineVars = createThemeContract({
-//   'ub-btn-color-bg-inline-focus': null,
-//   'ub-btn-color-txt-inline-focus': null,
-// })
+const a11yInlineVars = createThemeContract({
+  'ub-btn-color-bg-inline-focus': null,
+  'ub-btn-color-txt-inline-focus': null,
+})
 const a11yInline = style(
   {
     ':focus-visible': {
-      // vars: assignVars(a11yInlineVars, {
-      //   'ub-btn-color-bg-inline-focus': vars.color.gray[100],
-      //   'ub-btn-color-txt-inline-focus': vars.color.gray[700],
-      // }),
-      // background: a11yInlineVars['ub-btn-color-bg-inline-focus'],
-      // color: a11yInlineVars['ub-btn-color-txt-inline-focus'],
-      backdropFilter: 'brightness(1.8)',
+      vars: assignVars(a11yInlineVars, {
+        'ub-btn-color-bg-inline-focus': vars.color.gray[100],
+        'ub-btn-color-txt-inline-focus': vars.color.gray[700],
+      }),
+      background: a11yInlineVars['ub-btn-color-bg-inline-focus'],
+      color: a11yInlineVars['ub-btn-color-txt-inline-focus'],
+      // backdropFilter: 'brightness(1.8)',
     },
   },
   'a11y_inline',
@@ -295,12 +295,84 @@ const lg = style({
 
 /*********************************************************************************/
 
+const danger = style({})
+const warn = style({})
+const info = style({})
+const success = style({})
+const inlineDanger = style([
+  // One thing I did not like here is that I only wanted to set the txt color but to please TS, i have to keep setting bg to the same value
+  {
+    vars: assignVars(inlineVars, {
+      'ub-btn-color-bg-inline': 'transparent',
+      'ub-btn-color-txt-inline': vars.color.red[930],
+    }),
+  },
+  {
+    ':hover': {
+      vars: assignVars(hoverInlineVars, {
+        'ub-btn-color-bg-inline-hover': vars.color.gray[100],
+        'ub-btn-color-txt-inline-hover': vars.color.red[930],
+      }),
+    },
+  },
+  {
+    ':active': {
+      vars: assignVars(activeInlineVars, {
+        'ub-btn-color-bg-inline-active': vars.color.gray[200],
+        'ub-btn-color-txt-inline-active': vars.color.red[930],
+      }),
+    },
+  },
+])
+
+const inlineDangerElevated = style([
+  inlineDanger,
+  {
+    // One thing I did not like here is that I only wanted to set the background color but to please TS, i have to keep setting txt color to the same value
+    ':hover': {
+      vars: assignVars(hoverInlineVars, {
+        'ub-btn-color-bg-inline-hover': 'transparent',
+        'ub-btn-color-txt-inline-hover': vars.color.red[930],
+      }),
+      backdropFilter: 'brightness(1.8)',
+    },
+  },
+  // {
+  //   ':active': {
+  //     vars: assignVars(activeInlineVars, {
+  //       'ub-btn-color-bg-inline-active': 'transparent',
+  //       'ub-btn-color-txt-inline-active': vars.color.red[930],
+  //     }),
+  //     backdropFilter: 'brightness(1.5)',
+  //   },
+  // },
+])
+
 export const tokens = recipe({
   base: [common, a11y],
   variants: {
     variant: { primary, subtle, inline },
     size: { lg, md },
+    feedback: { danger, warn, info, success },
+    elevated: { true: {} },
   },
+  compoundVariants: [
+    {
+      variants: {
+        variant: 'inline',
+        feedback: 'danger',
+      },
+      style: inlineDanger,
+    },
+    {
+      variants: {
+        variant: 'inline',
+        feedback: 'danger',
+        elevated: true,
+      },
+      style: inlineDangerElevated,
+    },
+  ],
 })
 
 export type Variants = RecipeVariants<typeof tokens>

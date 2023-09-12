@@ -15,7 +15,7 @@ export const Alert = ({ type, title, details }: Props) => {
         {!title ? null : <H4>{title}</H4>}
         {!details ? null : <Text>{details}</Text>}
       </div>
-      <CloseButton className={towardsEnd} />
+      <CloseButton className={towardsEnd} feedback={type} elevated />
     </div>
   )
 }

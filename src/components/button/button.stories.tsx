@@ -27,6 +27,9 @@ export const Variants: Story = {
         <Button variant='primary'>Primary Button</Button>
         <Button>Subtle Button</Button>
         <Button variant='inline'>Inline Button</Button>
+        <Button variant='inline' feedback='danger'>
+          Danger Inline Button
+        </Button>
       </div>
       <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
         <div>Icon only</div>

@@ -14,9 +14,11 @@ const Button = ({
   className = '',
   leadingIcon,
   trailingIcon,
+  feedback,
+  elevated,
   ...props
 }: Props) => (
-  <button {...props} className={`${tokens({ variant, size })} ${className}`}>
+  <button {...props} className={`${tokens({ variant, size, feedback, elevated })} ${className}`}>
     {leadingIcon}
     {children}
     {trailingIcon}
