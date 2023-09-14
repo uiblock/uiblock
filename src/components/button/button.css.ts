@@ -13,7 +13,6 @@ const common = style({
   }),
   border: commonVars['ub-btn-border'],
   borderRadius: commonVars['ub-btn-border-radius'],
-
   transition: 'all ease-in 0.2s',
 
   // Needed for the icon + label
@@ -217,7 +216,6 @@ const hoverInline = style(
         'ub-btn-color-bg-inline-hover': vars.color.gray[100],
         'ub-btn-color-txt-inline-hover': vars.color.gray[700],
       }),
-      // backdropFilter: 'brightness(1.8)',
       background: hoverInlineVars['ub-btn-color-bg-inline-hover'],
       color: hoverInlineVars['ub-btn-color-txt-inline-hover'],
     },
@@ -237,7 +235,6 @@ const activeInline = style(
       }),
       background: activeInlineVars['ub-btn-color-bg-inline-active'],
       color: activeInlineVars['ub-btn-color-txt-inline-active'],
-      // backdropFilter: 'brightness(1.5)',
     },
   },
   'inline_active',
@@ -255,7 +252,6 @@ const a11yInline = style(
       }),
       background: a11yInlineVars['ub-btn-color-bg-inline-focus'],
       color: a11yInlineVars['ub-btn-color-txt-inline-focus'],
-      // backdropFilter: 'brightness(1.8)',
     },
   },
   'a11y_inline',
@@ -268,7 +264,7 @@ const inline = style([
   {
     vars: assignVars(inlineVars, {
       'ub-btn-color-bg-inline': 'transparent',
-      'ub-btn-color-txt-inline': 'inherit',
+      'ub-btn-color-txt-inline': vars.color.gray[600],
     }),
     background: inlineVars['ub-btn-color-bg-inline'],
     color: inlineVars['ub-btn-color-txt-inline'],
@@ -337,15 +333,6 @@ const inlineDangerElevated = style([
       backdropFilter: 'brightness(1.8)',
     },
   },
-  // {
-  //   ':active': {
-  //     vars: assignVars(activeInlineVars, {
-  //       'ub-btn-color-bg-inline-active': 'transparent',
-  //       'ub-btn-color-txt-inline-active': vars.color.red[930],
-  //     }),
-  //     backdropFilter: 'brightness(1.5)',
-  //   },
-  // },
 ])
 
 export const tokens = recipe({

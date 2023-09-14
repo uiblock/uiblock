@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import CloseButton from '#components/close-button'
+import ButtonClose from '#components/button-close'
 import vars from '#design/public-tokens.css'
 
-const meta: Meta<typeof CloseButton> = {
-  component: CloseButton,
+const meta: Meta<typeof ButtonClose> = {
+  component: ButtonClose,
 }
 
 export default meta
-type Story = StoryObj<typeof CloseButton>
+type Story = StoryObj<typeof ButtonClose>
 
 export const Variants: Story = {
   name: 'variants',
@@ -21,11 +21,11 @@ export const Variants: Story = {
     >
       <div>
         size md
-        <CloseButton />
+        <ButtonClose />
       </div>
       <div>
         size lg
-        <CloseButton size='lg' />
+        <ButtonClose size='lg' />
       </div>
     </div>
   ),

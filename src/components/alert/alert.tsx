@@ -3,7 +3,7 @@ import { Variants, tokens, flex, flexCol, towardsEnd } from './alert.css'
 import { H4 } from '#components/heading'
 import { Text } from '#components/text/text'
 import { ErrorIcon } from '#components/icons'
-import { CloseButton } from '#components/close-button/close-button'
+import { ButtonClose } from '#components/button-close/button-close'
 
 type Props = HTMLAttributes<HTMLDivElement> & Variants & { details?: string }
 
@@ -15,7 +15,7 @@ export const Alert = ({ type, title, details }: Props) => {
         {!title ? null : <H4>{title}</H4>}
         {!details ? null : <Text>{details}</Text>}
       </div>
-      <CloseButton className={towardsEnd} feedback={type} elevated />
+      <ButtonClose className={towardsEnd} feedback={type} elevated />
     </div>
   )
 }

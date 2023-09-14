@@ -19,11 +19,9 @@ export const towardsEnd = style({
 const common = style([
   flex,
   {
-    transition: 'all ease-in 0.2s',
     alignItems: 'baseline',
     background: vars.color.gray[100],
     padding: '20px',
-    // borderRadius: '10px',
   },
 ])
 
