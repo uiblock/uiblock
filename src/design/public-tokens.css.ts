@@ -60,7 +60,7 @@ const darkTheme = createGlobalTheme(':root', {
       900: '#e6c940',
       990: '#fde166', // true nice yellow color in dark mode
       1001_1: '#fff1c3', // from light mode colum in color box
-      1000: '#fff9e6',
+      1000: '#fff9e6', // it looks more like white or light gray
     },
     orange: {
       470: '#774710',

@@ -27,8 +27,14 @@ export const Variants: Story = {
         <Button variant='primary'>Primary Button</Button>
         <Button>Subtle Button</Button>
         <Button variant='inline'>Inline Button</Button>
+      </div>
+      <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+        <div>Inline with Feedback</div>
         <Button variant='inline' feedback='danger'>
           Danger Inline Button
+        </Button>
+        <Button variant='inline' feedback='warn'>
+          Warning Inline Button
         </Button>
       </div>
       <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
