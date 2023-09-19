@@ -8,18 +8,15 @@ export const flex = style({
   gap: vars.space[2],
 })
 
-export const flexCol = style({
-  flexDirection: 'column',
-})
-
 export const towardsEnd = style({
+  // TODO: add utility classes using sprinkles
   marginLeft: 'auto',
 })
 
 const common = style([
   flex,
   {
-    alignItems: 'baseline',
+    alignItems: 'center',
     background: vars.color.gray[100],
     padding: '20px',
   },
@@ -30,10 +27,15 @@ const danger = style({
   color: vars.color.red[930],
 })
 
+const warn = style({
+  border: `1px solid ${vars.color.yellow[780]}`,
+  color: vars.color.yellow[780],
+})
+
 export const tokens = recipe({
   base: [common],
   variants: {
-    type: { danger },
+    type: { danger, warn },
   },
 })
 

@@ -1,21 +1,22 @@
 import { HTMLAttributes } from 'react'
-import { Variants, tokens, flex, flexCol, towardsEnd } from './alert.css'
-import { H4 } from '#components/heading'
-import { Text } from '#components/text/text'
-import { ErrorIcon } from '#components/icons'
+import { Variants, tokens, towardsEnd } from './alert.css'
+
 import { ButtonClose } from '#components/button-close/button-close'
+import { AlertProvider, AlertType } from './alert-context'
 
-type Props = HTMLAttributes<HTMLDivElement> & Variants & { details?: string }
+// The recipe type Variants, assumes the type is optional but I want to enforce it is non-optional
+type Props = Omit<HTMLAttributes<HTMLDivElement> & Variants, 'type'> & {
+  type: AlertType
+  children: React.ReactNode
+}
 
-export const Alert = ({ type, title, details }: Props) => {
+export const Alert = ({ type, children }: Props) => {
   return (
-    <div role='alert' className={`${tokens({ type })}`}>
-      <ErrorIcon />
-      <div className={`${flex} ${flexCol}`}>
-        {!title ? null : <H4>{title}</H4>}
-        {!details ? null : <Text>{details}</Text>}
+    <AlertProvider type={type}>
+      <div role='alert' className={`${tokens({ type })}`}>
+        {children}
+        <ButtonClose className={towardsEnd} feedback={type} elevated />
       </div>
-      <ButtonClose className={towardsEnd} feedback={type} elevated />
-    </div>
+    </AlertProvider>
   )
 }
