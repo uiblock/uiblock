@@ -1,5 +1,6 @@
 import { HTMLAttributes } from 'react'
-import { Level, Variants, tokens } from './heading.css'
+import { Variants, tokens } from './heading.css'
+import { Level } from '#design/font.css'
 
 type Props = HTMLAttributes<HTMLHeadingElement> & Variants
 
