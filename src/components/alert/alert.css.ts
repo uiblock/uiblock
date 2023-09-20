@@ -1,6 +1,7 @@
 import { style } from '@vanilla-extract/css'
 import vars from '#design/public-tokens.css'
 import { RecipeVariants, recipe } from '@vanilla-extract/recipes'
+import { feedback, feedbackSpec } from '#design/feedback'
 
 export const flex = style({
   // TODO: add utility classes using sprinkles
@@ -22,25 +23,17 @@ const common = style([
   },
 ])
 
-const danger = style({
-  border: `1px solid ${vars.color.red[930]}`,
-  color: vars.color.red[930],
-})
-
-const warn = style({
-  border: `1px solid ${vars.color.yellow[780]}`,
-  color: vars.color.yellow[780],
-})
-
-const success = style({
-  border: `1px solid ${vars.color.green[720]}`,
-  color: vars.color.green[720],
-})
+const [danger, warn, success, info] = feedback.map(f =>
+  style({
+    border: `1px solid ${feedbackSpec[f]}`,
+    color: feedbackSpec[f],
+  }),
+)
 
 export const tokens = recipe({
   base: [common],
   variants: {
-    feedback: { danger, warn, success },
+    feedback: { danger, warn, success, info },
   },
 })
 

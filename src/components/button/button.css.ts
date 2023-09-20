@@ -151,7 +151,7 @@ export const tokens = recipe({
   variants: {
     variant: { primary, subtle, inline },
     size: { lg, md },
-    feedback: { danger, warn, info, success },
+    feedback: { danger, warn, success, info },
     elevated: { true: {} },
   },
   compoundVariants: [...feedback.reduce(toInlineFeedbackCompoundVariants, [])],

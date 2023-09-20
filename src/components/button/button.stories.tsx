@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { SpinnerIcon, CaretDownIcon, CalendarIcon } from '#components/icons'
 import Button from '#components/button'
-import vars from '#design/public-tokens.css'
 
 const meta: Meta<typeof Button> = {
   component: Button,
@@ -19,7 +18,6 @@ export const Variants: Story = {
         flexDirection: 'column',
         gap: '2rem',
         alignItems: 'start',
-        color: vars.color.yellow[990],
       }}
     >
       <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
@@ -38,6 +36,9 @@ export const Variants: Story = {
         </Button>
         <Button variant='inline' feedback='success'>
           Success Inline Button
+        </Button>
+        <Button variant='inline' feedback='info'>
+          Info Inline Button
         </Button>
       </div>
       <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
