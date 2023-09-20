@@ -23,19 +23,19 @@ export const Variants: Story = {
     >
       <Alert feedback='danger'>
         <AlertIcon />
-        Turn off airplane mode. Color contrast is 5.69:1
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Color contrast is 5.69:1
       </Alert>
       <Alert feedback='warn'>
         <AlertIcon />
-        Turn off airplane mode. Color contrast is 8.03:1
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Color contrast is 8.03:1
       </Alert>
       <Alert feedback='success'>
         <AlertIcon />
-        Airplane mode is off. Color contrast is 7.03:1
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Color contrast is 7.03:1
       </Alert>
       <Alert feedback='info'>
         <AlertIcon />
-        Airplane mode is cool. Color contrast is 6.09:1
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Color contrast is 6.09:1
       </Alert>
     </div>
   ),
