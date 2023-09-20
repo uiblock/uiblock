@@ -36,6 +36,9 @@ export const Variants: Story = {
         <Button variant='inline' feedback='warn'>
           Warning Inline Button
         </Button>
+        <Button variant='inline' feedback='success'>
+          Success Inline Button
+        </Button>
       </div>
       <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
         <div>Icon only</div>

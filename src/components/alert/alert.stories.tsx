@@ -29,6 +29,10 @@ export const Variants: Story = {
         <AlertIcon />
         Turn off airplane mode. Color contrast is 8.03:1
       </Alert>
+      <Alert type='success'>
+        <AlertIcon />
+        Airplane mode is off. Color contrast is 7.03:1
+      </Alert>
     </div>
   ),
 }

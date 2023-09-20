@@ -45,6 +45,7 @@ const darkTheme = createGlobalTheme(':root', {
       440: '#1d705b',
       520: '#28856d',
       680: '#4aad94',
+      720: '#2EB893',
       760: '#69c2aa',
       840: '#92d6c4',
       920: '#bbebdd',

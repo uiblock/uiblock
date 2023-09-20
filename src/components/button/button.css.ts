@@ -108,12 +108,13 @@ const warn = style({})
 const info = style({})
 const success = style({})
 
-const feedback = ['danger', 'warn'] as const
+const feedback = ['danger', 'warn', 'success'] as const
 type Feedback = (typeof feedback)[number]
 
 const feedbackSpec = {
   danger: vars.color.red[930],
   warn: vars.color.yellow[780],
+  success: vars.color.green[720],
 }
 
 const toInlineFeedbackCompoundVariants = (

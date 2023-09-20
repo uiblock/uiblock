@@ -32,10 +32,15 @@ const warn = style({
   color: vars.color.yellow[780],
 })
 
+const success = style({
+  border: `1px solid ${vars.color.green[720]}`,
+  color: vars.color.green[720],
+})
+
 export const tokens = recipe({
   base: [common],
   variants: {
-    type: { danger, warn },
+    type: { danger, warn, success },
   },
 })
 

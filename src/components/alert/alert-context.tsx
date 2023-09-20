@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react'
 
-export type AlertType = 'danger' | 'warn'
+export type AlertType = 'danger' | 'warn' | 'success'
 
 const AlertContext = createContext<AlertType | null>(null)
 
