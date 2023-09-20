@@ -21,15 +21,15 @@ export const Variants: Story = {
         color: vars.color.yellow[990],
       }}
     >
-      <Alert type='danger'>
+      <Alert feedback='danger'>
         <AlertIcon />
         Turn off airplane mode. Color contrast is 5.69:1
       </Alert>
-      <Alert type='warn'>
+      <Alert feedback='warn'>
         <AlertIcon />
         Turn off airplane mode. Color contrast is 8.03:1
       </Alert>
-      <Alert type='success'>
+      <Alert feedback='success'>
         <AlertIcon />
         Airplane mode is off. Color contrast is 7.03:1
       </Alert>

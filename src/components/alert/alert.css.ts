@@ -40,7 +40,7 @@ const success = style({
 export const tokens = recipe({
   base: [common],
   variants: {
-    type: { danger, warn, success },
+    feedback: { danger, warn, success },
   },
 })
 

@@ -2,20 +2,20 @@ import { HTMLAttributes } from 'react'
 import { Variants, tokens, towardsEnd } from './alert.css'
 
 import { ButtonClose } from '#components/button-close/button-close'
-import { AlertProvider, AlertType } from './alert-context'
+import { AlertProvider } from './alert-context'
+import { Feedback } from '#design/feedback'
 
-// The recipe type Variants, assumes the type is optional but I want to enforce it is non-optional
+// The recipe feedback type is optional but I want to enforce it is non-optional to please TS
 type Props = Omit<HTMLAttributes<HTMLDivElement> & Variants, 'type'> & {
-  type: AlertType
-  children: React.ReactNode
+  feedback: Feedback
 }
 
-export const Alert = ({ type, children }: Props) => {
+export const Alert = ({ feedback, children }: Props) => {
   return (
-    <AlertProvider type={type}>
-      <div role='alert' className={`${tokens({ type })}`}>
+    <AlertProvider feedback={feedback}>
+      <div role='alert' className={`${tokens({ feedback })}`}>
         {children}
-        <ButtonClose className={towardsEnd} feedback={type} elevated />
+        <ButtonClose className={towardsEnd} feedback={feedback} elevated />
       </div>
     </AlertProvider>
   )
