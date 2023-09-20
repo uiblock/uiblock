@@ -1,6 +1,7 @@
+import { Feedback } from '#design/feedback'
 import { createContext, useContext } from 'react'
 
-export type AlertType = 'danger' | 'warn' | 'success'
+export type AlertType = Feedback
 
 const AlertContext = createContext<AlertType | null>(null)
 

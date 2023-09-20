@@ -1,6 +1,7 @@
 import { style } from '@vanilla-extract/css'
 import vars from '#design/public-tokens.css'
 import { RecipeVariants, recipe } from '@vanilla-extract/recipes'
+import { Feedback, feedbackSpec, feedback } from '#design/feedback'
 
 const common = style({
   border: 'none',
@@ -107,15 +108,6 @@ const danger = style({})
 const warn = style({})
 const info = style({})
 const success = style({})
-
-const feedback = ['danger', 'warn', 'success'] as const
-type Feedback = (typeof feedback)[number]
-
-const feedbackSpec = {
-  danger: vars.color.red[930],
-  warn: vars.color.yellow[780],
-  success: vars.color.green[720],
-}
 
 const toInlineFeedbackCompoundVariants = (
   acc: Array<{ variants: { [k: string]: string | boolean }; style: string }>,
