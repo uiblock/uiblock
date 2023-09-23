@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import Text from '#components/text'
 import vars from '#design/public-tokens.css'
+import { l2 } from '#design/font.css'
 
 const meta: Meta<typeof Text> = {
   component: Text,
@@ -67,6 +68,10 @@ export const Variants: Story = {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         <Text>Text with system font</Text>
         <Text family='mono'>Text with monospace font</Text>
+      </div>
+
+      <div>
+        <Text className={l2}>Div tag looking as h2</Text>
       </div>
     </div>
   ),

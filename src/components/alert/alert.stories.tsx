@@ -16,7 +16,7 @@ export default meta
 type Story = StoryObj<typeof Alert>
 
 export const Variants: Story = {
-  name: 'error',
+  name: 'feedback',
   render: () => (
     <div
       style={{
@@ -57,9 +57,9 @@ export const Variants: Story = {
           <AlertBody className={`${flex} ${flexCol}`}>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
             <div className={`${alignItemsStart} ${flex} ${gapSm}`}>
-              <Button className={`${mt1}`}>Cancel</Button>
+              <Button className={`${mt1}`}>Perspiciatis</Button>
               <Button variant='primary' className={`${mt1}`}>
-                Open settings
+                Commodi atque
               </Button>
             </div>
           </AlertBody>

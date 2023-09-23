@@ -58,6 +58,12 @@ export const Variants: Story = {
           Open calendar
         </Button>
       </div>
+
+      <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+        <div>Size</div>
+        <Button>medium size</Button>
+        <Button size='lg'>large size</Button>
+      </div>
     </div>
   ),
 }

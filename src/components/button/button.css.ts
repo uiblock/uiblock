@@ -2,6 +2,7 @@ import { style } from '@vanilla-extract/css'
 import vars from '#design/public-tokens.css'
 import { RecipeVariants, recipe } from '@vanilla-extract/recipes'
 import { Feedback, feedbackSpec, feedback } from '#design/feedback'
+import { l3 } from '#design/font.css'
 
 const common = style({
   border: 'none',
@@ -93,28 +94,31 @@ const inline = style([
 const md = style({
   minHeight: vars.size[11],
   minWidth: vars.size[11],
-  padding: `0 ${vars.space[2]}`,
+  padding: `0 ${vars.space[4]}`,
 })
 
-const lg = style({
-  minHeight: vars.size[15],
-  minWidth: vars.size[15],
-  padding: `0 ${vars.space[2]}`,
-})
+const lg = style([
+  l3,
+  {
+    minHeight: vars.size[15],
+    minWidth: vars.size[15],
+    padding: `0 ${vars.space[4]}`,
+    aspectRatio: '3 / 1',
+  },
+])
 
 /*********************************************************************************/
-// TODO: Can I do better here?
-const danger = style({})
-const warn = style({})
-const info = style({})
-const success = style({})
+
+const [danger, warn, success, info] = feedback.reduce(
+  (acc: Array<string>, f: Feedback) => acc.concat(style({ color: feedbackSpec[f] })),
+  [],
+)
 
 const toInlineFeedbackCompoundVariants = (
   acc: Array<{ variants: { [k: string]: string | boolean }; style: string }>,
   f: Feedback,
 ) => {
   const withFeedbackStyle = style({
-    color: feedbackSpec[f],
     ':hover': { color: feedbackSpec[f] },
     ':active': { color: feedbackSpec[f], background: vars.color.gray[200] },
     ':focus-visible': { color: feedbackSpec[f] },
