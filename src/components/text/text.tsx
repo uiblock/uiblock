@@ -11,4 +11,4 @@ export const Text = ({
   color,
   family,
   ...props
-}: Props) => <Tag {...props} className={`${tokens({ color, size, align, weight, family })}`} />
+}: Props) => <Tag className={`${tokens({ color, size, align, weight, family })}`} {...props} />

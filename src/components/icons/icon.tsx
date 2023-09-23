@@ -1,7 +1,7 @@
 import { FontAwesomeIconProps, FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 interface Props extends Omit<FontAwesomeIconProps, 'size'> {
-  size?: 'sm' | 'md' | 'lg'
+  size?: 'sm' | 'md' | 'lg' | 'xl'
 }
 
 // This component is just a wrapper around Font Awesome icons to fix that

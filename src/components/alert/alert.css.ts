@@ -2,24 +2,16 @@ import { style } from '@vanilla-extract/css'
 import vars from '#design/public-tokens.css'
 import { RecipeVariants, recipe } from '@vanilla-extract/recipes'
 import { feedback, feedbackSpec } from '#design/feedback'
-
-export const flex = style({
-  // TODO: add utility classes using sprinkles
-  display: 'flex',
-  gap: vars.space[2],
-})
-
-export const towardsEnd = style({
-  // TODO: add utility classes using sprinkles
-  marginLeft: 'auto',
-})
+import { flex, alignItemsCenter } from '#design/utils.css'
 
 const common = style([
   flex,
+  alignItemsCenter,
   {
-    alignItems: 'center',
     background: vars.color.gray[100],
     padding: '20px',
+    gap: '0.5rem',
+    borderRadius: vars.size[2],
   },
 ])
 
