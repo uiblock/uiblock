@@ -3,7 +3,16 @@ import Alert from '#components/alert'
 import { AlertIcon } from './alert-icon'
 import { AlertTitle } from './alert-title'
 import { AlertBody } from './alert-body'
-import { alignItemsCenter, flex, flexCol, flexGrow, mt1, gapSm, alignItemsStart } from '#design/utils.css'
+import {
+  alignItemsCenter,
+  flex,
+  flexCol,
+  flexGrow,
+  mt1,
+  gapSm,
+  alignItemsStart,
+  alignItemsBaseline,
+} from '#design/utils.css'
 import Button from '#components/button'
 import Text from '#components/text'
 import { l3 } from '#design/font.css'
@@ -50,7 +59,7 @@ export const Variants: Story = {
       <div>
         <div>Composition example 1</div>
         <Alert feedback='danger' className={`${flexCol} ${alignItemsStart}`} dismissible={false}>
-          <div className={`${flex} ${gapSm}`}>
+          <div className={`${flex} ${alignItemsBaseline} ${gapSm}`}>
             <AlertIcon />
             <AlertTitle>Autn quid repellendus</AlertTitle>
           </div>

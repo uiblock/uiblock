@@ -3,6 +3,7 @@ import { style } from '@vanilla-extract/css'
 export const alignSelfStart = style({ alignSelf: 'start' })
 export const alignItemsCenter = style({ alignItems: 'center' })
 export const alignItemsStart = style({ alignItems: 'start' })
+export const alignItemsBaseline = style({ alignItems: 'baseline' })
 export const justifyContentsSpaceBetween = style({ justifyContent: 'space-between' })
 export const flex = style({ display: 'flex' })
 export const flexCol = style({ flexDirection: 'column' })

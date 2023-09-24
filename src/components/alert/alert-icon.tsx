@@ -8,10 +8,10 @@ export const AlertIcon = (props: Props) => {
   switch (type) {
     case 'danger':
     case 'warn':
-      return <ErrorIcon size='lg' {...props} />
+      return <ErrorIcon {...props} />
     case 'success':
-      return <CircleCheckIcon size='lg' {...props} />
+      return <CircleCheckIcon {...props} />
     case 'info':
-      return <InfoIcon size='lg' {...props} />
+      return <InfoIcon {...props} />
   }
 }
