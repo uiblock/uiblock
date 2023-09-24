@@ -1,4 +1,3 @@
-import { HTMLAttributes } from 'react'
 import { Variants, tokens } from './alert.css'
 import { AlertContext } from './alert-context'
 import { Feedback } from '#design/feedback'
@@ -6,7 +5,7 @@ import ButtonClose from '#components/button-close'
 import { towardsEnd } from '#design/utils.css'
 
 // The recipe feedback type is optional but I want to enforce it is non-optional to please TS
-type Props = Omit<HTMLAttributes<HTMLDivElement> & Variants, 'type'> & {
+type Props = Omit<React.HTMLAttributes<HTMLDivElement> & Variants, 'type'> & {
   feedback: Feedback
   dismissible?: boolean
 }

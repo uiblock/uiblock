@@ -1,2 +1,2 @@
-type Props = { className?: string; children: React.ReactNode }
-export const AlertBody = ({ children, className = '' }: Props) => <div className={className}>{children}</div>
+type Props = React.HTMLAttributes<HTMLDivElement>
+export const AlertBody = (props: Props) => <div {...props} />
