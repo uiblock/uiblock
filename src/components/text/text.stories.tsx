@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import Text from '#components/text'
 import vars from '#design/public-tokens.css'
+import { l2 } from '#design/font.css'
 
 const meta: Meta<typeof Text> = {
   component: Text,
@@ -18,7 +19,7 @@ export const Variants: Story = {
         flexDirection: 'column',
         gap: '2rem',
         alignItems: 'start',
-        color: vars.color.yellow[990],
+        color: vars.color.gray[1000],
       }}
     >
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'start' }}>
@@ -50,7 +51,15 @@ export const Variants: Story = {
         <Text weight='bold'>Text in bold weight</Text>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', border: '1px solid', width: '80%' }}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1rem',
+          border: `1px solid ${vars.color.yellow[990]}`,
+          width: '80%',
+        }}
+      >
         <Text>Text with start alignment</Text>
         <Text align='center'>Text with center alignment</Text>
         <Text align='end'>Text with end alignment</Text>
@@ -59,6 +68,10 @@ export const Variants: Story = {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         <Text>Text with system font</Text>
         <Text family='mono'>Text with monospace font</Text>
+      </div>
+
+      <div>
+        <Text className={l2}>Div tag looking as h2</Text>
       </div>
     </div>
   ),

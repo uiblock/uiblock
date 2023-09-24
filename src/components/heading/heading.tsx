@@ -1,7 +1,7 @@
-import { HTMLAttributes } from 'react'
-import { Level, Variants, tokens } from './heading.css'
+import { Variants, tokens } from './heading.css'
+import { Level } from '#design/font.css'
 
-type Props = HTMLAttributes<HTMLHeadingElement> & Variants
+type Props = React.HTMLAttributes<HTMLHeadingElement> & Variants
 
 const headings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const
 

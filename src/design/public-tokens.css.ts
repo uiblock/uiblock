@@ -21,7 +21,7 @@ const darkTheme = createGlobalTheme(':root', {
       820: '#d1402f',
       880: '#e1574a',
       910: '#e75f54',
-      930: '#b3b3b3',
+      930: '#ed6962',
       950: '#f38986',
       980: '#f9baba',
       1000: '#ffe6e6',
@@ -30,7 +30,7 @@ const darkTheme = createGlobalTheme(':root', {
       400: '#003366',
       550: '#00468b',
       680: '#0258ac',
-      870: '#0669c7',
+      780: '#0669c7',
       860: '#2585db',
       890: '#2f90e2',
       920: '#409ee9',
@@ -45,6 +45,7 @@ const darkTheme = createGlobalTheme(':root', {
       440: '#1d705b',
       520: '#28856d',
       680: '#4aad94',
+      720: '#2EB893',
       760: '#69c2aa',
       840: '#92d6c4',
       920: '#bbebdd',
@@ -60,7 +61,7 @@ const darkTheme = createGlobalTheme(':root', {
       900: '#e6c940',
       990: '#fde166', // true nice yellow color in dark mode
       1001_1: '#fff1c3', // from light mode colum in color box
-      1000: '#fff9e6',
+      1000: '#fff9e6', // it looks more like white or light gray
     },
     orange: {
       470: '#774710',
@@ -170,6 +171,7 @@ const darkTheme = createGlobalTheme(':root', {
     0: '0',
     2: '0.5rem',
     11: '2.75rem',
+    15: '3.75rem',
   },
 })
 

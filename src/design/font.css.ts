@@ -24,28 +24,16 @@ const [start, center, end] = alignValues
 
 /*********************************************************************************/
 // weight
-const weightSpec = {
+export const weightSpec = {
   bold: vars.font.weight.bold,
   semibold: vars.font.weight.semibold,
   medium: vars.font.weight.medium,
   regular: vars.font.weight.regular,
   thin: vars.font.weight.thin,
 }
-type Weight = keyof typeof weightSpec
+export type Weight = keyof typeof weightSpec
 const weights = Object.keys(weightSpec) as Weight[]
-export const getFontWeights = () =>
-  weights
-    .map(a => createThemeContract({ [`ub-font-weight-${a}`]: null }))
-    .map((v, i) =>
-      style(
-        {
-          vars: assignVars(v, { [`ub-font-weight-${weights[i]}`]: weightSpec[weights[i]] }),
-          fontWeight: v[`ub-font-weight-${weights[i]}`],
-        },
-        'weight',
-      ),
-    )
-const [bold, semibold, medium, regular, thin] = getFontWeights()
+const [bold, semibold, medium, regular, thin] = weights.map(w => style({ fontWeight: weightSpec[w] }, 'weight'))
 
 /*********************************************************************************/
 // family
@@ -73,3 +61,30 @@ export const fontTokens = {
   weight: { bold, semibold, medium, regular, thin },
   family: { system, mono },
 }
+
+/*********************************************************************************/
+// levels classes to be used for heading tags and tiles like alert title
+const spec = {
+  l1: { fontSize: vars.font.size[250], lineHeight: vars.font.lineHeight[300], fontWeight: vars.font.weight.bold },
+  l2: { fontSize: vars.font.size[200], lineHeight: vars.font.lineHeight[250], fontWeight: vars.font.weight.semibold },
+  l3: { fontSize: vars.font.size[175], lineHeight: vars.font.lineHeight[200], fontWeight: vars.font.weight.semibold },
+  l4: { fontSize: vars.font.size[150], lineHeight: vars.font.lineHeight[175], fontWeight: vars.font.weight.semibold },
+  l5: { fontSize: vars.font.size[125], lineHeight: vars.font.lineHeight[150], fontWeight: vars.font.weight.semibold },
+  l6: { fontSize: vars.font.size[100], lineHeight: vars.font.lineHeight[150], fontWeight: vars.font.weight.semibold },
+}
+
+export type Level = keyof typeof spec
+const levels = Object.keys(spec) as Level[]
+
+const toHeadingStyle = (level: Level) => {
+  const { fontSize, lineHeight, fontWeight } = spec[level]
+  return style(
+    {
+      fontSize,
+      lineHeight,
+      fontWeight,
+    },
+    level,
+  )
+}
+export const [l1, l2, l3, l4, l5, l6] = levels.map(toHeadingStyle)
