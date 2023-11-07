@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import Text from '#components/text'
-import vars from '#design/public-tokens.css'
-// import { l2 } from '#design/font.css'
 
 const meta: Meta<typeof Text> = {
   component: Text,
@@ -13,21 +11,13 @@ type Story = StoryObj<typeof Text>
 export const Variants: Story = {
   name: 'variants',
   render: () => (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '2rem',
-        alignItems: 'start',
-        color: vars.color.gray[1000],
-      }}
-    >
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'start' }}>
+    <div className='flex flex-col gap-8'>
+      <div className='flex flex-col gap-4'>
         <Text>Text in default color</Text>
         <Text color='subtle'>Text in subtle color</Text>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'start' }}>
+      <div className='flex flex-col gap-4'>
         <Text>This is a div</Text>
         <Text as='span'>This is a span</Text>
         <Text as='p'>
@@ -37,13 +27,13 @@ export const Variants: Story = {
         </Text>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'start' }}>
+      <div className='flex flex-col gap-4'>
         <Text>Default size md</Text>
         <Text size='sm'>Different size sm</Text>
         <Text size='xs'>Different size xs</Text>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'start' }}>
+      <div className='flex flex-col gap-4'>
         <Text weight='thin'>Text in thin weight</Text>
         <Text>Text in regular weight</Text>
         <Text weight='medium'>Text in medium weight</Text>
@@ -51,21 +41,13 @@ export const Variants: Story = {
         <Text weight='bold'>Text in bold weight</Text>
       </div>
 
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '1rem',
-          border: `1px solid ${vars.color.yellow[990]}`,
-          width: '80%',
-        }}
-      >
+      <div className='flex flex-col gap-1 border border-yellow-500 w-[80%]'>
         <Text>Text with start alignment</Text>
         <Text align='center'>Text with center alignment</Text>
         <Text align='end'>Text with end alignment</Text>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <div className='flex flex-col gap-4'>
         <Text>Text with system font</Text>
         <Text family='mono'>Text with monospace font</Text>
       </div>
