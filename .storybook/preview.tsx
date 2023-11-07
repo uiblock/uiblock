@@ -1,7 +1,8 @@
+import React from 'react'
 import type { Preview } from '@storybook/react'
-import { withThemeFromJSXProvider } from '@storybook/addon-styling'
 import UIBlockProvider from '../src/components/provider'
-import darkTheme from '../src/design/public-tokens.css'
+
+import { withThemeByClassName } from '@storybook/addon-styling'
 
 const preview: Preview = {
   parameters: {
@@ -17,16 +18,19 @@ const preview: Preview = {
 
 export default preview
 
-// TODO: add proper theme values
-const light = { color: 'white' }
-
 export const decorators = [
-  withThemeFromJSXProvider({
+  Story => (
+    <UIBlockProvider>
+      <Story />
+    </UIBlockProvider>
+  ),
+  // Adds theme switching support.
+  // NOTE: requires setting "darkMode" to "class" in your tailwind config
+  withThemeByClassName({
     themes: {
-      light,
-      dark: darkTheme,
+      light: 'light',
+      dark: 'dark',
     },
     defaultTheme: 'dark',
-    Provider: UIBlockProvider,
   }),
 ]

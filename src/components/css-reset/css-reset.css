@@ -1,0 +1,54 @@
+@tailwind base;
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  html.dark body {
+    background-color: black;
+    color: white;
+  }
+
+  picture,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  #root {
+    /* // TODO: Dynamically apply style rule to an element other than #root */
+    isolation: isolate;
+  }
+}
+
+@tailwind components;
+
+@tailwind utilities;
+@layer utilities {
+  .dbg {
+    outline: 1px solid red;
+  }
+}

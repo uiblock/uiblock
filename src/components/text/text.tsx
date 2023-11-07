@@ -1,3 +1,4 @@
+import { twMerge } from '#tailwind-merge'
 import { Variants, tokens } from './text.css'
 
 type Props = React.HTMLAttributes<HTMLDivElement | HTMLSpanElement | HTMLParagraphElement> &
@@ -5,9 +6,10 @@ type Props = React.HTMLAttributes<HTMLDivElement | HTMLSpanElement | HTMLParagra
 export const Text = ({
   as: Tag = 'div',
   size = 'md',
-  align = 'start',
-  weight = 'regular',
+  weight,
+  align,
+  className = '',
   color,
   family,
   ...props
-}: Props) => <Tag className={`${tokens({ color, size, align, weight, family })}`} {...props} />
+}: Props) => <Tag className={twMerge(`${tokens({ color, size, align, weight, family })}`, className)} {...props} />

@@ -1,5 +1,6 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react'
 import { Variants, tokens } from './button.css'
+import { twMerge } from 'tailwind-merge'
 
 export type ButtonWithVariants = ButtonHTMLAttributes<HTMLButtonElement> & Variants
 type Props = ButtonWithVariants & {
@@ -18,7 +19,7 @@ const Button = ({
   elevated,
   ...props
 }: Props) => (
-  <button {...props} className={`${tokens({ variant, size, feedback, elevated })} ${className}`}>
+  <button {...props} className={twMerge(tokens({ variant, size, feedback, elevated }), className)}>
     {leadingIcon}
     {children}
     {trailingIcon}

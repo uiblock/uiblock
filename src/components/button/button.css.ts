@@ -1,164 +1,88 @@
-import { style } from '@vanilla-extract/css'
-import vars from '#design/public-tokens.css'
-import { RecipeVariants, recipe } from '@vanilla-extract/recipes'
-import { Feedback, feedbackSpec, feedback } from '#design/feedback'
-import { l3 } from '#design/font.css'
+import { cva, cx, VariantProps } from 'cva'
+import { Feedback, feedback } from '#design/feedback'
+import { ClassProp } from 'cva/types'
 
-const common = style({
-  border: 'none',
-  borderRadius: vars.size[2],
-  transition: 'all ease-in 0.2s',
-
+const common = cva([
+  'border-none rounded-md transition-all ease-in duration-[200ms] py-0 px-4',
   // Needed for the icon + label
-  // TODO: add utility classes using sprinkles
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  gap: vars.space[2],
-})
-
-/*********************************************************************************/
-const a11yCommon = style([
-  {
-    ':focus-visible': {
-      outline: 'none',
-      boxShadow: `0 0 0 2px ${vars.color.gray.base},0 0 0 4px ${vars.color.blue[860]}`,
-    },
-  },
+  'flex items-center justify-center gap-2',
 ])
 
 /*********************************************************************************/
-const primary = style([
-  {
-    background: vars.color.gray[1000],
-    ':hover': {
-      background: vars.color.gray[900],
-      color: vars.color.gray[100],
-    },
-    ':active': {
-      background: vars.color.gray[800],
-      color: vars.color.gray[200],
-    },
-    ':focus-visible': {
-      background: vars.color.gray[900],
-      color: vars.color.gray[100],
-    },
-  },
-])
-
-/*********************************************************************************/
-const subtle = style([
-  {
-    background: 'transparent',
-    color: vars.color.gray[600],
-    boxShadow: `0 0 0 1px ${vars.color.gray[600]}`,
-    ':hover': {
-      background: vars.color.gray[100],
-      color: vars.color.gray[700],
-    },
-    ':active': {
-      background: vars.color.gray[200],
-      color: vars.color.gray[800],
-    },
-    ':focus-visible': {
-      background: vars.color.gray[100],
-      color: vars.color.gray[700],
-      // As opposed to :hover css rules, no need to set the box-shadow here so that it's set by common a11y
-    },
-  },
-])
-
-/*********************************************************************************/
-const inline = style([
-  {
-    background: 'transparent',
-    color: vars.color.gray[600],
-    ':hover': {
-      background: vars.color.gray[100],
-      color: vars.color.gray[700],
-    },
-    ':active': {
-      background: vars.color.gray[200],
-      color: vars.color.gray[800],
-    },
-    ':focus-visible': {
-      background: vars.color.gray[100],
-      color: vars.color.gray[700],
-    },
-  },
-])
-
-/*********************************************************************************/
-// size
-// https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
-const md = style({
-  minHeight: vars.size[11],
-  minWidth: vars.size[11],
-  padding: `0 ${vars.space[4]}`,
-})
-
-const lg = style([
-  l3,
-  {
-    minHeight: vars.size[15],
-    minWidth: vars.size[15],
-    padding: `0 ${vars.space[4]}`,
-    aspectRatio: '3 / 1',
-  },
-])
-
-/*********************************************************************************/
-
-const [danger, warn, success, info] = feedback.reduce(
-  (acc: Array<string>, f: Feedback) => acc.concat(style({ color: feedbackSpec[f] })),
-  [],
+const a11yCommon = cva(
+  'outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:ring-yellow-600',
 )
 
+/*********************************************************************************/
+const primary = cva([
+  'bg-white text-black hover:bg-gray-100 hover:text-gray-900',
+  ' active:bg-gray-200 active:text-gray-800',
+  ' focus-visible:bg-gray-100 focus-visible:text-gray-900',
+])
+
+/*********************************************************************************/
+const subtle = cva([
+  'bg-transparent text-gray-400 shadow ring-1 ring-gray-400',
+  'hover:bg-gray-900 hover:text-gray-300',
+  'active:bg-gray-800 active:text-gray-200',
+  'focus-visible:bg-gray-900 focus-visible:text-gray-300',
+])
+
+/*********************************************************************************/
+const inline = cva([
+  'bg-transparent text-gray-400',
+  'hover:bg-gray-900 hover:text-gray-300',
+  'active:bg-gray-800 active:text-gray-200',
+  'focus-visible:bg-gray-900 focus-visible:text-gray-300',
+])
+/*********************************************************************************/
+
+export const inlineFeedbackSpec = {
+  danger: 'text-red-400 hover:text-red-400 active:text-red-400 focus-visible:text-red-400',
+  warn: 'text-yellow-400 hover:text-yellow-400 active:text-yellow-400 focus-visible:text-yellow-400',
+  success: 'text-green-400 hover:text-green-400 active:text-green-400 focus-visible:text-green-400',
+  info: 'text-blue-400 hover:text-blue-400 active:text-blue-400 focus-visible:text-blue-400',
+}
+
 const toInlineFeedbackCompoundVariants = (
-  acc: Array<{ variants: { [k: string]: string | boolean }; style: string }>,
+  acc: Array<{ [k: string]: boolean | string | ((props?: ClassProp | undefined) => string) }>,
   f: Feedback,
 ) => {
-  const withFeedbackStyle = style({
-    ':hover': { color: feedbackSpec[f] },
-    ':active': { color: feedbackSpec[f], background: vars.color.gray[200] },
-    ':focus-visible': { color: feedbackSpec[f] },
-  })
-  const withFeedbackStyleOnElevation = style([
+  const withFeedbackStyle = cva([inlineFeedbackSpec[f], 'active:bg-gray-800'])()
+  // another alternative to backdrop brightness is to use'hover:bg-gray-800', 'active:bg-gray-700'
+  const withFeedbackStyleOnElevation = cva([
     withFeedbackStyle,
-    {
-      ':hover': { background: 'transparent', backdropFilter: 'brightness(1.8)' },
-      ':active': { background: vars.color.gray[200] },
-    },
-  ])
+    'hover:bg-transparent hover:backdrop-brightness-150',
+    'active:bg-gray-800',
+  ])()
   return acc.concat(
     {
-      variants: {
-        variant: 'inline',
-        feedback: f,
-      },
-      style: withFeedbackStyle,
+      variant: 'inline',
+      feedback: f,
+      className: withFeedbackStyle,
     },
     {
-      variants: {
-        variant: 'inline',
-        feedback: f,
-        elevated: true,
-      },
-      style: withFeedbackStyleOnElevation,
+      variant: 'inline',
+      feedback: f,
+      elevated: true,
+      className: withFeedbackStyleOnElevation,
     },
   )
 }
 
 /*********************************************************************************/
-export const tokens = recipe({
-  base: [common, a11yCommon],
+export const tokens = cva(cx(common(), a11yCommon()), {
   variants: {
-    variant: { primary, subtle, inline },
-    size: { lg, md },
-    feedback: { danger, warn, success, info },
+    variant: { primary: primary(), subtle: subtle(), inline: inline() },
+    size: {
+      // https://www.w3.org/WAI/WCAG21/Understanding/target-size.html
+      md: 'min-h-44 min-w-44',
+      lg: 'min-h-60 min-w-60 aspect-[3/1]',
+    },
+    feedback: { danger: '', warn: '', success: '', info: '' },
     elevated: { true: {} },
   },
   compoundVariants: [...feedback.reduce(toInlineFeedbackCompoundVariants, [])],
 })
 
-export type Variants = RecipeVariants<typeof tokens>
+export type Variants = VariantProps<typeof tokens>

@@ -2,7 +2,7 @@ import { Variants, tokens } from './alert.css'
 import { AlertContext } from './alert-context'
 import { Feedback } from '#design/feedback'
 import ButtonClose from '#components/button-close'
-import { towardsEnd } from '#design/utils.css'
+import { twMerge } from 'tailwind-merge'
 
 // The recipe feedback type is optional but I want to enforce it is non-optional to please TS
 type Props = Omit<React.HTMLAttributes<HTMLDivElement> & Variants, 'type'> & {
@@ -13,9 +13,9 @@ type Props = Omit<React.HTMLAttributes<HTMLDivElement> & Variants, 'type'> & {
 export const Alert = ({ feedback, children, className = '', dismissible = true }: Props) => {
   return (
     <AlertContext.Provider value={feedback}>
-      <div role='alert' className={`${tokens({ feedback })} ${className}`}>
+      <div role='alert' className={twMerge(`${tokens({ feedback })}`, className)}>
         {children}
-        {dismissible ? <ButtonClose className={towardsEnd} feedback={feedback} elevated /> : null}
+        {dismissible ? <ButtonClose className='ml-auto' feedback={feedback} elevated /> : null}
       </div>
     </AlertContext.Provider>
   )

@@ -1,3 +1,3 @@
 import './css-reset.css'
 
-export const CSSRest = () => <></>
+export const CSSReset = () => <></>

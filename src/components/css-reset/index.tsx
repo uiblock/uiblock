@@ -1,1 +1,1 @@
-export { CSSRest as default } from './css-reset'
+export { CSSReset as default } from './css-reset'

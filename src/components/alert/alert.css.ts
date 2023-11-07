@@ -1,32 +1,16 @@
-import { style } from '@vanilla-extract/css'
-import vars from '#design/public-tokens.css'
-import { RecipeVariants, recipe } from '@vanilla-extract/recipes'
-import { feedback, feedbackSpec } from '#design/feedback'
-import { flex, alignItemsCenter } from '#design/utils.css'
+import { cva, VariantProps } from 'cva'
 
-const common = style([
-  flex,
-  alignItemsCenter,
-  {
-    background: vars.color.gray[100],
-    padding: '20px',
-    gap: '0.5rem',
-    borderRadius: vars.size[2],
-  },
-])
+const common = cva('flex items-center gap-2 p-5 bg-gray-900 rounded-lg')
 
-const [danger, warn, success, info] = feedback.map(f =>
-  style({
-    border: `1px solid ${feedbackSpec[f]}`,
-    color: feedbackSpec[f],
-  }),
-)
-
-export const tokens = recipe({
-  base: [common],
+export const tokens = cva(common(), {
   variants: {
-    feedback: { danger, warn, success, info },
+    feedback: {
+      danger: 'border border-red-400 text-red-400',
+      warn: 'border border-yellow-500 text-yellow-500',
+      success: 'border border-green-500 text-green-500',
+      info: 'border border-blue-500 text-blue-500',
+    },
   },
 })
 
-export type Variants = RecipeVariants<typeof tokens>
+export type Variants = VariantProps<typeof tokens>

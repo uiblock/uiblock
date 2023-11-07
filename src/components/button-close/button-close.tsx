@@ -6,6 +6,6 @@ type Props = Omit<ButtonWithVariants, 'variant'>
 
 export const ButtonClose = ({ size = 'md', ...props }: Props) => (
   <Button variant='inline' size={size} {...props}>
-    <XMarkIcon size={size} />
+    <XMarkIcon />
   </Button>
 )

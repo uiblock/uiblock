@@ -1,4 +1,6 @@
-import { l5 } from '#design/font.css'
+import { cx } from 'cva'
 
 type Props = React.HTMLAttributes<HTMLDivElement>
-export const AlertTitle = ({ className = '', ...props }: Props) => <div className={`${l5} ${className}`} {...props} />
+export const AlertTitle = ({ className = '', ...props }: Props) => (
+  <div className={cx('text-l5', className)} {...props} />
+)
